@@ -32,31 +32,26 @@ export const getThunkData = createAsyncThunk(
     try {
       const data = await newPexelsFetchObject.searchPhotos();
       return data;
-      // if (data.length > 0) {
-      //   return data;
-      // } else {
-      //   throw new Error();
-      // }
     } catch (err) {
       return rejectWithValue(err);
     }
   },
 );
 
-// const getMoreThunkData = createAsyncThunk(
-//   'getMoreImages',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const data = await newPexelsFetchObject.searchPhotos();
-//       if (data.length > 0) {
-//         return data;
-//       } else {
-//         throw new Error('Empty Array by this request');
-//       }
-//     } catch (err) {
-//       return rejectWithValue(err.message);
-//     }
-//   },
-// );
+export const getMoreThunkData = createAsyncThunk(
+  'getMoreImages',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await newPexelsFetchObject.searchPhotos();
+      return data;
+      // if (data.length > 0) {
+      //   return data;
+      // } else {
+      //   throw new Error('Empty Array by this request');
+      // }
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  },
+);
 
-// export default { getThunkData, getMoreThunkData };
